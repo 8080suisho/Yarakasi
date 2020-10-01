@@ -3,19 +3,28 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C23585C25264BA400EE09B7 /* ControllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C23585B25264BA400EE09B7 /* ControllViewController.swift */; };
 		2C47EA442526235B006A92C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C47EA432526235B006A92C8 /* AppDelegate.swift */; };
 		2C47EA462526235B006A92C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C47EA452526235B006A92C8 /* SceneDelegate.swift */; };
 		2C47EA482526235B006A92C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C47EA472526235B006A92C8 /* ViewController.swift */; };
 		2C47EA4B2526235B006A92C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C47EA492526235B006A92C8 /* Main.storyboard */; };
 		2C47EA4D2526235C006A92C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C47EA4C2526235C006A92C8 /* Assets.xcassets */; };
 		2C47EA502526235C006A92C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C47EA4E2526235C006A92C8 /* LaunchScreen.storyboard */; };
+		2C47EA592526259D006A92C8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C47EA582526259D006A92C8 /* GoogleService-Info.plist */; };
+		2C47EA712526308E006A92C8 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C47EA702526308E006A92C8 /* ChatViewController.swift */; };
+		2C47EA79252630DB006A92C8 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C47EA77252630DB006A92C8 /* ChatTableViewCell.swift */; };
+		2C47EA7A252630DB006A92C8 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C47EA78252630DB006A92C8 /* ChatTableViewCell.xib */; };
+		2C47EA7F2526310D006A92C8 /* PostMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C47EA7E2526310D006A92C8 /* PostMessageViewController.swift */; };
+		2C47EA8225263128006A92C8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C47EA8125263128006A92C8 /* Post.swift */; };
+		84B730F0A95760930E0CD21C /* Pods_Yarakasi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0E5B09E6E2694616F4A9B3 /* Pods_Yarakasi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C23585B25264BA400EE09B7 /* ControllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllViewController.swift; sourceTree = "<group>"; };
 		2C47EA402526235B006A92C8 /* Yarakasi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yarakasi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C47EA432526235B006A92C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C47EA452526235B006A92C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +33,15 @@
 		2C47EA4C2526235C006A92C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C47EA4F2526235C006A92C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C47EA512526235C006A92C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C47EA582526259D006A92C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2C47EA702526308E006A92C8 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		2C47EA77252630DB006A92C8 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		2C47EA78252630DB006A92C8 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
+		2C47EA7E2526310D006A92C8 /* PostMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageViewController.swift; sourceTree = "<group>"; };
+		2C47EA8125263128006A92C8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		3D0E5B09E6E2694616F4A9B3 /* Pods_Yarakasi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yarakasi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAD3C2C46AB269423D51C0D6 /* Pods-Yarakasi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yarakasi.debug.xcconfig"; path = "Target Support Files/Pods-Yarakasi/Pods-Yarakasi.debug.xcconfig"; sourceTree = "<group>"; };
+		FF84EB096FFACEE89904DAE7 /* Pods-Yarakasi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yarakasi.release.xcconfig"; path = "Target Support Files/Pods-Yarakasi/Pods-Yarakasi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +49,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B730F0A95760930E0CD21C /* Pods_Yarakasi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23B2D8FFFA5CEC64235885E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D0E5B09E6E2694616F4A9B3 /* Pods_Yarakasi.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2C47EA372526235B006A92C8 = {
 			isa = PBXGroup;
 			children = (
 				2C47EA422526235B006A92C8 /* Yarakasi */,
 				2C47EA412526235B006A92C8 /* Products */,
+				CEEBE70EF8E21FEA7EF59B18 /* Pods */,
+				23B2D8FFFA5CEC64235885E4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,12 +88,28 @@
 				2C47EA432526235B006A92C8 /* AppDelegate.swift */,
 				2C47EA452526235B006A92C8 /* SceneDelegate.swift */,
 				2C47EA472526235B006A92C8 /* ViewController.swift */,
+				2C47EA702526308E006A92C8 /* ChatViewController.swift */,
+				2C47EA7E2526310D006A92C8 /* PostMessageViewController.swift */,
+				2C47EA77252630DB006A92C8 /* ChatTableViewCell.swift */,
+				2C23585B25264BA400EE09B7 /* ControllViewController.swift */,
+				2C47EA8125263128006A92C8 /* Post.swift */,
 				2C47EA492526235B006A92C8 /* Main.storyboard */,
+				2C47EA78252630DB006A92C8 /* ChatTableViewCell.xib */,
 				2C47EA4C2526235C006A92C8 /* Assets.xcassets */,
 				2C47EA4E2526235C006A92C8 /* LaunchScreen.storyboard */,
+				2C47EA582526259D006A92C8 /* GoogleService-Info.plist */,
 				2C47EA512526235C006A92C8 /* Info.plist */,
 			);
 			path = Yarakasi;
+			sourceTree = "<group>";
+		};
+		CEEBE70EF8E21FEA7EF59B18 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FAD3C2C46AB269423D51C0D6 /* Pods-Yarakasi.debug.xcconfig */,
+				FF84EB096FFACEE89904DAE7 /* Pods-Yarakasi.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +119,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C47EA542526235C006A92C8 /* Build configuration list for PBXNativeTarget "Yarakasi" */;
 			buildPhases = (
+				154C32FCBB2D84DF77CA9FB3 /* [CP] Check Pods Manifest.lock */,
 				2C47EA3C2526235B006A92C8 /* Sources */,
 				2C47EA3D2526235B006A92C8 /* Frameworks */,
 				2C47EA3E2526235B006A92C8 /* Resources */,
+				B7357F28B5110F861A957907 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,12 +172,56 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C47EA502526235C006A92C8 /* LaunchScreen.storyboard in Resources */,
+				2C47EA592526259D006A92C8 /* GoogleService-Info.plist in Resources */,
+				2C47EA7A252630DB006A92C8 /* ChatTableViewCell.xib in Resources */,
 				2C47EA4D2526235C006A92C8 /* Assets.xcassets in Resources */,
 				2C47EA4B2526235B006A92C8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		154C32FCBB2D84DF77CA9FB3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Yarakasi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7357F28B5110F861A957907 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Yarakasi/Pods-Yarakasi-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Yarakasi/Pods-Yarakasi-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Yarakasi/Pods-Yarakasi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2C47EA3C2526235B006A92C8 /* Sources */ = {
@@ -139,6 +230,11 @@
 			files = (
 				2C47EA482526235B006A92C8 /* ViewController.swift in Sources */,
 				2C47EA442526235B006A92C8 /* AppDelegate.swift in Sources */,
+				2C47EA79252630DB006A92C8 /* ChatTableViewCell.swift in Sources */,
+				2C23585C25264BA400EE09B7 /* ControllViewController.swift in Sources */,
+				2C47EA712526308E006A92C8 /* ChatViewController.swift in Sources */,
+				2C47EA7F2526310D006A92C8 /* PostMessageViewController.swift in Sources */,
+				2C47EA8225263128006A92C8 /* Post.swift in Sources */,
 				2C47EA462526235B006A92C8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +379,7 @@
 		};
 		2C47EA552526235C006A92C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAD3C2C46AB269423D51C0D6 /* Pods-Yarakasi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +399,7 @@
 		};
 		2C47EA562526235C006A92C8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF84EB096FFACEE89904DAE7 /* Pods-Yarakasi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
