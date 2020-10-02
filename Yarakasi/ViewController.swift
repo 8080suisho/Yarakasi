@@ -11,13 +11,20 @@ import Firebase
 class ViewController: UIViewController {
     
     @IBOutlet var loginNameTextField: UITextField!
+    @IBOutlet var loginButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginNameTextField.placeholder = "ログインネーム"
         
+        //名前入力欄のカスタム
+        loginNameTextField.attributedPlaceholder = NSAttributedString(string: "名前を入力してください。", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        loginNameTextField.addBorderBottom(height: 1.0, color: UIColor.purple)
+        
+        //ボタンのカスタム
+        loginButton.layer.cornerRadius = 20
     }
     
+   
     override func viewWillAppear(_ animated: Bool) {
         loginNameTextField.text = ""
     }
@@ -51,6 +58,19 @@ class ViewController: UIViewController {
           }
 
     }
+    
+    
 
+}
+
+//名前入力欄のカスタム
+extension UITextField {
+    func addBorderBottom(height: CGFloat, color: UIColor) {
+        let border = CALayer()
+        border.frame = CGRect(x: 0, y: self.frame.height - height, width: self.frame.width, height: height)
+        border.backgroundColor = color.cgColor
+        self.layer.addSublayer(border)
+        self.borderStyle = .none
+    }
 }
 

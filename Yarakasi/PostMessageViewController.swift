@@ -10,15 +10,17 @@ import Firebase
 
 class PostMessageViewController: UIViewController {
     
-    @IBOutlet var messageTextField: UITextField!
+    @IBOutlet var messageTextField: UITextView!
+    @IBOutlet var postButton: UIButton!
+    
     var message = ""
     var name = ""
     var postTime = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        messageTextField.placeholder = "つぶやき"
-
+        
+        postButton.layer.cornerRadius = 15
     }
     
     @IBAction func post(){
@@ -47,6 +49,10 @@ class PostMessageViewController: UIViewController {
                 // 成功したときの処理
                 self.dismiss(animated: true, completion: nil)
             }
+    }
+    
+    @IBAction func cancel(){
+        self.dismiss(animated: true, completion: nil)
     }
 
     

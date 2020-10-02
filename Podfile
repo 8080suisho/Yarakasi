@@ -11,5 +11,6 @@ target 'Yarakasi' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'PanModal'
+  pod 'MaterialComponents'
 
 end

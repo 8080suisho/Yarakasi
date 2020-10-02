@@ -7,16 +7,19 @@
 
 import UIKit
 import Firebase
+import MaterialComponents
 
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
     @IBOutlet var listTableView: UITableView!
+    
     var postArray = [Post]()
     let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         listTableView.delegate = self
         listTableView.dataSource = self
         
@@ -74,6 +77,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         print("tapped: \([sender.tag])番目のcell")
         presentPanModal(ControllViewController())
     }
-   
+    
 
 }
