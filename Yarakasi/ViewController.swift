@@ -17,14 +17,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         //名前入力欄のカスタム
-        loginNameTextField.attributedPlaceholder = NSAttributedString(string: "名前を入力してください。", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
-        loginNameTextField.addBorderBottom(height: 1.0, color: UIColor.purple)
+        loginNameTextField.attributedPlaceholder = NSAttributedString(string: "ログインネーム", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        loginNameTextField.addBorderBottom(height: 1.0, color: UIColor(hex: "5a4498", alpha: 1.0))
         
         //ボタンのカスタム
         loginButton.layer.cornerRadius = 20
     }
     
-   
+  //ログアウトしたときに名前入力欄に前の名前が残らないようにする
     override func viewWillAppear(_ animated: Bool) {
         loginNameTextField.text = ""
     }
@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //ログイン
     @IBAction func login(){
         //もしtextFieldに文字が入力されてるなら
           if loginNameTextField.text != "" {
@@ -74,3 +75,14 @@ extension UITextField {
     }
 }
 
+
+//色を16進数で指定
+extension UIColor {
+    convenience init(hex: String, alpha: CGFloat = 1.0) {
+        let v = Int("000000" + hex, radix: 16) ?? 0
+        let r = CGFloat(v / Int(powf(256, 2)) % 256) / 255
+        let g = CGFloat(v / Int(powf(256, 1)) % 256) / 255
+        let b = CGFloat(v / Int(powf(256, 0)) % 256) / 255
+        self.init(red: r, green: g, blue: b, alpha: min(max(alpha, 0), 1))
+    }
+}

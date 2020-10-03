@@ -27,8 +27,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         listTableView.register(xib, forCellReuseIdentifier: "Cell")
     }
     
+    //firestoreからデータを読み込む
     override func viewWillAppear(_ animated: Bool) {
-        
         
         super.viewWillAppear(animated)
         db.collection("users").order(by: "lastUpdated", descending: true).getDocuments { (snapshot, error) in
@@ -44,17 +44,21 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         postArray.count
     }
     
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 66
+        return 147
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChatTableViewCell
@@ -63,16 +67,11 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.dateLabel?.text = postArray[indexPath.row].postTime
         cell.button.addTarget(self, action: #selector(self.buttonEvent(_: )), for: UIControl.Event.touchUpInside)
         cell.button.tag = indexPath.row
-
         
         return cell
     }
     
-    @IBAction func logout(){
-        UserDefaults.standard.removeObject(forKey: "loginChatName")
-        self.dismiss(animated: true, completion: nil)
-    }
-    
+    //Cellのボタンを押したらメニューを表示
     @objc func buttonEvent(_ sender: UIButton) {
         print("tapped: \([sender.tag])番目のcell")
         presentPanModal(ControllViewController())

@@ -34,7 +34,6 @@ class ControllViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
-
     
 
 }
@@ -56,5 +55,6 @@ extension ControllViewController: PanModalPresentable {
     var anchorModalToLongForm: Bool {
         return false
     }
+    
     
 }
