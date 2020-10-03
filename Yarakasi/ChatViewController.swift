@@ -7,7 +7,6 @@
 
 import UIKit
 import Firebase
-import MaterialComponents
 
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
