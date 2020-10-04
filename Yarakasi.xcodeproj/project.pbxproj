@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2C23585C25264BA400EE09B7 /* ControllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C23585B25264BA400EE09B7 /* ControllViewController.swift */; };
+		2C24323F252A07990096A437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C24323E252A07990096A437 /* Assets.xcassets */; };
 		2C362FA125288BED00D6C09E /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C362FA025288BED00D6C09E /* ContainerViewController.swift */; };
 		2C47EA442526235B006A92C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C47EA432526235B006A92C8 /* AppDelegate.swift */; };
 		2C47EA462526235B006A92C8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C47EA452526235B006A92C8 /* SceneDelegate.swift */; };
 		2C47EA482526235B006A92C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C47EA472526235B006A92C8 /* ViewController.swift */; };
 		2C47EA4B2526235B006A92C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C47EA492526235B006A92C8 /* Main.storyboard */; };
-		2C47EA4D2526235C006A92C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C47EA4C2526235C006A92C8 /* Assets.xcassets */; };
 		2C47EA502526235C006A92C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C47EA4E2526235C006A92C8 /* LaunchScreen.storyboard */; };
 		2C47EA592526259D006A92C8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C47EA582526259D006A92C8 /* GoogleService-Info.plist */; };
 		2C47EA712526308E006A92C8 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C47EA702526308E006A92C8 /* ChatViewController.swift */; };
@@ -27,13 +27,13 @@
 
 /* Begin PBXFileReference section */
 		2C23585B25264BA400EE09B7 /* ControllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllViewController.swift; sourceTree = "<group>"; };
+		2C24323E252A07990096A437 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C362FA025288BED00D6C09E /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		2C47EA402526235B006A92C8 /* Yarakasi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yarakasi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C47EA432526235B006A92C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C47EA452526235B006A92C8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2C47EA472526235B006A92C8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2C47EA4A2526235B006A92C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2C47EA4C2526235C006A92C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C47EA4F2526235C006A92C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C47EA512526235C006A92C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C47EA582526259D006A92C8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -101,8 +101,8 @@
 				2C917E8D2527963700312F3C /* PlaceHolderTextVew.swift */,
 				2C47EA492526235B006A92C8 /* Main.storyboard */,
 				2C47EA78252630DB006A92C8 /* ChatTableViewCell.xib */,
-				2C47EA4C2526235C006A92C8 /* Assets.xcassets */,
 				2C47EA4E2526235C006A92C8 /* LaunchScreen.storyboard */,
+				2C24323E252A07990096A437 /* Assets.xcassets */,
 				2C47EA582526259D006A92C8 /* GoogleService-Info.plist */,
 				2C47EA512526235C006A92C8 /* Info.plist */,
 			);
@@ -180,8 +180,8 @@
 				2C47EA502526235C006A92C8 /* LaunchScreen.storyboard in Resources */,
 				2C47EA592526259D006A92C8 /* GoogleService-Info.plist in Resources */,
 				2C47EA7A252630DB006A92C8 /* ChatTableViewCell.xib in Resources */,
-				2C47EA4D2526235C006A92C8 /* Assets.xcassets in Resources */,
 				2C47EA4B2526235B006A92C8 /* Main.storyboard in Resources */,
+				2C24323F252A07990096A437 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

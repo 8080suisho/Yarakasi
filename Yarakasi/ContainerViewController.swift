@@ -16,6 +16,10 @@ class ContainerViewController: UIViewController {
         super.viewDidLoad()
         
         button.layer.cornerRadius = 32
+        
+        //上バーの色
+        self.navigationController?.navigationBar.barTintColor = UIColor(hex: "5a4498", alpha: 1.0)
+        
     }
     
     override func didReceiveMemoryWarning() {

@@ -24,6 +24,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let xib = UINib(nibName: "ChatTableViewCell", bundle: nil)
         listTableView.register(xib, forCellReuseIdentifier: "Cell")
+        
     }
     
     //firestoreからデータを読み込む
