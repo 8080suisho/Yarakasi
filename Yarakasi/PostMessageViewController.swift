@@ -20,6 +20,7 @@ class PostMessageViewController: UIViewController {
     
     var content = ""
     var userName = ""
+    var senderID = ""
     var postTime = ""
 
     override func viewDidLoad() {
@@ -50,6 +51,7 @@ class PostMessageViewController: UIViewController {
     @IBAction func post(){
         content = textView.text!
         userName = UserDefaults.standard.object(forKey: "loginChatName") as! String
+        senderID = UserDefaults.standard.object(forKey: "uid") as! String
         
         let date = Date()
         let df = DateFormatter()
@@ -57,11 +59,13 @@ class PostMessageViewController: UIViewController {
         df.dateFormat = "yyyy/MM/dd"
         postTime = (df.string(from: date))
         
-        let db = Firestore.firestore()
+        let db = Firestore.firestore().collection("posts").document()
         
-        db.collection("users").document().setData([
+        db.setData([
                 "userName": userName,
                 "content": content,
+                "postID": db.documentID,
+                "senderID": senderID,
                 "postTime":postTime,
                 "createdAt": FieldValue.serverTimestamp()
             ]) { error in

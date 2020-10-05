@@ -24,6 +24,9 @@ class ViewController: UIViewController {
         loginButton.layer.cornerRadius = 20
     }
     
+    
+    
+    
   //ログアウトしたときに名前入力欄に前の名前が残らないようにする
     override func viewWillAppear(_ animated: Bool) {
         loginNameTextField.text = ""
@@ -47,6 +50,7 @@ class ViewController: UIViewController {
                 
               //ユーザー名をUDに保存
               ud.set(loginNameTextField.text, forKey: "loginChatName")
+              
                 
               //次の画面に遷移するなど
               performSegue(withIdentifier: "toChat", sender: nil)

@@ -22,6 +22,7 @@
 		2C47EA7A252630DB006A92C8 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C47EA78252630DB006A92C8 /* ChatTableViewCell.xib */; };
 		2C47EA7F2526310D006A92C8 /* PostMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C47EA7E2526310D006A92C8 /* PostMessageViewController.swift */; };
 		2C47EA8225263128006A92C8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C47EA8125263128006A92C8 /* Post.swift */; };
+		2CB7FBCF252B01E40049AF75 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB7FBCE252B01E40049AF75 /* ReportViewController.swift */; };
 		84B730F0A95760930E0CD21C /* Pods_Yarakasi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0E5B09E6E2694616F4A9B3 /* Pods_Yarakasi.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		2C47EA78252630DB006A92C8 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
 		2C47EA7E2526310D006A92C8 /* PostMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageViewController.swift; sourceTree = "<group>"; };
 		2C47EA8125263128006A92C8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		2CB7FBCE252B01E40049AF75 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		3D0E5B09E6E2694616F4A9B3 /* Pods_Yarakasi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yarakasi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD3C2C46AB269423D51C0D6 /* Pods-Yarakasi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yarakasi.debug.xcconfig"; path = "Target Support Files/Pods-Yarakasi/Pods-Yarakasi.debug.xcconfig"; sourceTree = "<group>"; };
 		FF84EB096FFACEE89904DAE7 /* Pods-Yarakasi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yarakasi.release.xcconfig"; path = "Target Support Files/Pods-Yarakasi/Pods-Yarakasi.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				2C47EA702526308E006A92C8 /* ChatViewController.swift */,
 				2C47EA7E2526310D006A92C8 /* PostMessageViewController.swift */,
 				2C47EA77252630DB006A92C8 /* ChatTableViewCell.swift */,
+				2CB7FBCE252B01E40049AF75 /* ReportViewController.swift */,
 				2C23585B25264BA400EE09B7 /* ControllViewController.swift */,
 				2C47EA8125263128006A92C8 /* Post.swift */,
 				2C1658F8252AB8BE0001D462 /* AppUser.swift */,
@@ -238,6 +241,7 @@
 				2C47EA442526235B006A92C8 /* AppDelegate.swift in Sources */,
 				2C362FA125288BED00D6C09E /* ContainerViewController.swift in Sources */,
 				2C1658F9252AB8BE0001D462 /* AppUser.swift in Sources */,
+				2CB7FBCF252B01E40049AF75 /* ReportViewController.swift in Sources */,
 				2C47EA79252630DB006A92C8 /* ChatTableViewCell.swift in Sources */,
 				2C23585C25264BA400EE09B7 /* ControllViewController.swift in Sources */,
 				2C47EA712526308E006A92C8 /* ChatViewController.swift in Sources */,

@@ -7,11 +7,12 @@
 
 import UIKit
 import PanModal
+import Firebase
 
 class ControllViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var tableView: UITableView = UITableView()
-    var array: [String] = ["投稿を非表示にする","投稿を削除する"]
+    var array: [String] = ["投稿を非表示にする","この投稿を報告する"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,7 @@ class ControllViewController: UIViewController, UITableViewDelegate, UITableView
         
         return cell
     }
+    
     
     
 

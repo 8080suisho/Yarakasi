@@ -12,6 +12,8 @@ class ContainerViewController: UIViewController {
     
     @IBOutlet var button: UIButton!
     
+    var me:AppUser!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

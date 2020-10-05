@@ -12,6 +12,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     @IBOutlet var listTableView: UITableView!
+    var userName = ""
+    var userID = ""
     
     var postArray = [Post]()
     let db = Firestore.firestore()
@@ -25,13 +27,28 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         let xib = UINib(nibName: "ChatTableViewCell", bundle: nil)
         listTableView.register(xib, forCellReuseIdentifier: "Cell")
         
+        
+        //usersコレクションを追加
+        userName = UserDefaults.standard.object(forKey: "loginChatName") as! String
+        userID = UserDefaults.standard.object(forKey: "uid") as! String
+        
+        db.collection("users").document().setData([
+            "userName": userName,
+            "userID": userID
+        ]){ error in
+            if error == nil {
+                
+            }
+        }
+        
+        
     }
     
     //firestoreからデータを読み込む
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        db.collection("users").order(by: "createdAt", descending: true).getDocuments { (snapshot, error) in
+        db.collection("posts").order(by: "createdAt", descending: true).getDocuments { (snapshot, error) in
             if error == nil, let snapshot = snapshot {
                 self.postArray = []
                 for document in snapshot.documents {
@@ -42,6 +59,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.listTableView.reloadData()
             }
         }
+        
+        
     }
     
     
@@ -62,9 +81,13 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChatTableViewCell
-        cell.nameLabel?.text = postArray[indexPath.row].userName
+        
         cell.messageLabel?.text = postArray[indexPath.row].content
         cell.dateLabel?.text = postArray[indexPath.row].postTime
+        cell.nameLabel?.text = postArray[indexPath.row].userName
+        
+        
+        
         cell.button.addTarget(self, action: #selector(self.buttonEvent(_: )), for: UIControl.Event.touchUpInside)
         cell.button.tag = indexPath.row
         
