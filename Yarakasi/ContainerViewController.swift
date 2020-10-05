@@ -17,13 +17,11 @@ class ContainerViewController: UIViewController {
         
         button.layer.cornerRadius = 32
         
-        //上バーの色
+        //NavigationBarの色
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: "5a4498", alpha: 1.0)
         
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        //Navigationbarのボタンの色
+        self.navigationController?.navigationBar.tintColor = .white
     }
  
     @IBAction func tapBottomButtonAction(_ sender: Any) {

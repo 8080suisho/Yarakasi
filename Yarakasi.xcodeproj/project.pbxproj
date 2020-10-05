@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C1658F9252AB8BE0001D462 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1658F8252AB8BE0001D462 /* AppUser.swift */; };
 		2C23585C25264BA400EE09B7 /* ControllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C23585B25264BA400EE09B7 /* ControllViewController.swift */; };
 		2C24323F252A07990096A437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C24323E252A07990096A437 /* Assets.xcassets */; };
 		2C362FA125288BED00D6C09E /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C362FA025288BED00D6C09E /* ContainerViewController.swift */; };
@@ -21,11 +22,11 @@
 		2C47EA7A252630DB006A92C8 /* ChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C47EA78252630DB006A92C8 /* ChatTableViewCell.xib */; };
 		2C47EA7F2526310D006A92C8 /* PostMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C47EA7E2526310D006A92C8 /* PostMessageViewController.swift */; };
 		2C47EA8225263128006A92C8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C47EA8125263128006A92C8 /* Post.swift */; };
-		2C917E8E2527963700312F3C /* PlaceHolderTextVew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C917E8D2527963700312F3C /* PlaceHolderTextVew.swift */; };
 		84B730F0A95760930E0CD21C /* Pods_Yarakasi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0E5B09E6E2694616F4A9B3 /* Pods_Yarakasi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C1658F8252AB8BE0001D462 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		2C23585B25264BA400EE09B7 /* ControllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllViewController.swift; sourceTree = "<group>"; };
 		2C24323E252A07990096A437 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C362FA025288BED00D6C09E /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
@@ -42,7 +43,6 @@
 		2C47EA78252630DB006A92C8 /* ChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatTableViewCell.xib; sourceTree = "<group>"; };
 		2C47EA7E2526310D006A92C8 /* PostMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostMessageViewController.swift; sourceTree = "<group>"; };
 		2C47EA8125263128006A92C8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		2C917E8D2527963700312F3C /* PlaceHolderTextVew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderTextVew.swift; sourceTree = "<group>"; };
 		3D0E5B09E6E2694616F4A9B3 /* Pods_Yarakasi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yarakasi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD3C2C46AB269423D51C0D6 /* Pods-Yarakasi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yarakasi.debug.xcconfig"; path = "Target Support Files/Pods-Yarakasi/Pods-Yarakasi.debug.xcconfig"; sourceTree = "<group>"; };
 		FF84EB096FFACEE89904DAE7 /* Pods-Yarakasi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yarakasi.release.xcconfig"; path = "Target Support Files/Pods-Yarakasi/Pods-Yarakasi.release.xcconfig"; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 				2C47EA77252630DB006A92C8 /* ChatTableViewCell.swift */,
 				2C23585B25264BA400EE09B7 /* ControllViewController.swift */,
 				2C47EA8125263128006A92C8 /* Post.swift */,
-				2C917E8D2527963700312F3C /* PlaceHolderTextVew.swift */,
+				2C1658F8252AB8BE0001D462 /* AppUser.swift */,
 				2C47EA492526235B006A92C8 /* Main.storyboard */,
 				2C47EA78252630DB006A92C8 /* ChatTableViewCell.xib */,
 				2C47EA4E2526235C006A92C8 /* LaunchScreen.storyboard */,
@@ -237,10 +237,10 @@
 				2C47EA482526235B006A92C8 /* ViewController.swift in Sources */,
 				2C47EA442526235B006A92C8 /* AppDelegate.swift in Sources */,
 				2C362FA125288BED00D6C09E /* ContainerViewController.swift in Sources */,
+				2C1658F9252AB8BE0001D462 /* AppUser.swift in Sources */,
 				2C47EA79252630DB006A92C8 /* ChatTableViewCell.swift in Sources */,
 				2C23585C25264BA400EE09B7 /* ControllViewController.swift in Sources */,
 				2C47EA712526308E006A92C8 /* ChatViewController.swift in Sources */,
-				2C917E8E2527963700312F3C /* PlaceHolderTextVew.swift in Sources */,
 				2C47EA7F2526310D006A92C8 /* PostMessageViewController.swift in Sources */,
 				2C47EA8225263128006A92C8 /* Post.swift in Sources */,
 				2C47EA462526235B006A92C8 /* SceneDelegate.swift in Sources */,
@@ -392,12 +392,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0.0;
 				DEVELOPMENT_TEAM = R2P8732Z2M;
 				INFOPLIST_FILE = Yarakasi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.lifeistech.Yarakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -412,12 +414,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0.0;
 				DEVELOPMENT_TEAM = R2P8732Z2M;
 				INFOPLIST_FILE = Yarakasi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.co.lifeistech.Yarakasi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

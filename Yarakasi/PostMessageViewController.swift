@@ -18,8 +18,8 @@ class PostMessageViewController: UIViewController {
     
     @IBOutlet var postButton: UIButton!
     
-    var message = ""
-    var name = ""
+    var content = ""
+    var userName = ""
     var postTime = ""
 
     override func viewDidLoad() {
@@ -48,8 +48,8 @@ class PostMessageViewController: UIViewController {
     
     //投稿ボタンを押したらfirestoreに保存
     @IBAction func post(){
-        message = textView.text!
-        name = UserDefaults.standard.object(forKey: "loginChatName") as! String
+        content = textView.text!
+        userName = UserDefaults.standard.object(forKey: "loginChatName") as! String
         
         let date = Date()
         let df = DateFormatter()
@@ -60,10 +60,10 @@ class PostMessageViewController: UIViewController {
         let db = Firestore.firestore()
         
         db.collection("users").document().setData([
-                "userName": name,
-                "message": message,
+                "userName": userName,
+                "content": content,
                 "postTime":postTime,
-                "lastUpdated": FieldValue.serverTimestamp()
+                "createdAt": FieldValue.serverTimestamp()
             ]) { error in
             if error != nil {
                     // エラー処理

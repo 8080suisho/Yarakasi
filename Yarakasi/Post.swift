@@ -10,14 +10,15 @@ import Firebase
 
 struct Post {
     let userName: String
-    let message: String
+    let content: String
     let postTime: String
-    let lastUpdated: Timestamp
-
+    let createdAt: Timestamp
+    
     init(data: [String: Any]) {
         userName = data["userName"] as! String
-        message = data["message"] as! String
+        content = data["content"] as! String
         postTime = data["postTime"] as! String
-        lastUpdated = data["lastUpdated"] as! Timestamp
+        createdAt = data["createdAt"] as! Timestamp
+        
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -33,17 +33,17 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7j-6a-Jje">
-                        <rect key="frame" x="158" y="10" width="141" height="21"/>
+                        <rect key="frame" x="158" y="10" width="133" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" systemColor="systemGray3Color"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXy-5T-V5t">
-                        <rect key="frame" x="323" y="8" width="30" height="22"/>
+                        <rect key="frame" x="316" y="4" width="27" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                        <state key="normal" title="button">
+                        <state key="normal" backgroundImage="ic_more_horiz">
                             <color key="titleColor" name="AccentColor"/>
                         </state>
                     </button>
@@ -56,10 +56,11 @@
                 <outlet property="messageLabel" destination="eEb-EB-HPB" id="jMc-yV-N7I"/>
                 <outlet property="nameLabel" destination="nLk-bv-8nz" id="d4H-BN-qDw"/>
             </connections>
-            <point key="canvasLocation" x="-41" y="20"/>
+            <point key="canvasLocation" x="-42.399999999999999" y="19.95073891625616"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="ic_more_horiz" width="24" height="24"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

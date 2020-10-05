@@ -31,7 +31,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        db.collection("users").order(by: "lastUpdated", descending: true).getDocuments { (snapshot, error) in
+        db.collection("users").order(by: "createdAt", descending: true).getDocuments { (snapshot, error) in
             if error == nil, let snapshot = snapshot {
                 self.postArray = []
                 for document in snapshot.documents {
@@ -63,7 +63,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChatTableViewCell
         cell.nameLabel?.text = postArray[indexPath.row].userName
-        cell.messageLabel?.text = postArray[indexPath.row].message
+        cell.messageLabel?.text = postArray[indexPath.row].content
         cell.dateLabel?.text = postArray[indexPath.row].postTime
         cell.button.addTarget(self, action: #selector(self.buttonEvent(_: )), for: UIControl.Event.touchUpInside)
         cell.button.tag = indexPath.row
