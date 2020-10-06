@@ -12,6 +12,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     @IBOutlet var listTableView: UITableView!
+    var me: AppUser!
     var userName = ""
     var userID = ""
     
@@ -26,21 +27,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let xib = UINib(nibName: "ChatTableViewCell", bundle: nil)
         listTableView.register(xib, forCellReuseIdentifier: "Cell")
-        
-        
-        //usersコレクションを追加
-        userName = UserDefaults.standard.object(forKey: "loginChatName") as! String
-        userID = UserDefaults.standard.object(forKey: "uid") as! String
-        
-        db.collection("users").document().setData([
-            "userName": userName,
-            "userID": userID
-        ]){ error in
-            if error == nil {
-                
-            }
-        }
-        
         
     }
     

@@ -15,22 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
-        // 匿名認証(下記のメソッドがエラーなく終了すれば、認証完了する)
-                Auth.auth().signInAnonymously() { (authResult, error) in
-                    if error != nil{
-                        print("Auth Error :\(error!.localizedDescription)")
-                    }
-
-                     // 認証情報の取得
-                     guard let user = authResult?.user else { return }
-                     let isAnonymous = user.isAnonymous  // true
-                     let uid = user.uid
-                     let ud = UserDefaults.standard
-                     ud.set(user.uid, forKey: "uid")
-                    return
-                }
-        
-        sleep(2)
         return true
     }
 
