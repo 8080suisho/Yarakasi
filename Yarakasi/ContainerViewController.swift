@@ -13,8 +13,6 @@ class ContainerViewController: UIViewController {
     
     @IBOutlet var button: UIButton!
     
-    
-    
     var me:AppUser!
     
     override func viewDidLoad() {
@@ -36,6 +34,7 @@ class ContainerViewController: UIViewController {
     
     //ログアウトしログイン画面へ
     @IBAction func logout(){
+        try? Auth.auth().signOut()
         UserDefaults.standard.removeObject(forKey: "loginChatName")
         self.dismiss(animated: true, completion: nil)
     }

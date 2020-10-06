@@ -12,6 +12,8 @@ class PostMessageViewController: UIViewController {
     
     @IBOutlet  var wordCountLabel: UILabel!
     @IBOutlet  var textView: UITextView!
+    var me: AppUser!
+    
     fileprivate var maxWordCount: Int = 60 //最大文字数
     fileprivate let placeholder: String = "テキストを入力・・・" //プレイスホルダー
     
@@ -67,7 +69,8 @@ class PostMessageViewController: UIViewController {
                 "postID": db.documentID,
                 "senderID": senderID,
                 "postTime":postTime,
-                "createdAt": FieldValue.serverTimestamp()
+                "createdAt": FieldValue.serverTimestamp(),
+                "updatedAt": FieldValue.serverTimestamp()
             ]) { error in
             if error != nil {
                     // エラー処理

@@ -29,27 +29,38 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sk1-3f-zMq">
-                                <rect key="frame" x="62" y="247" width="250" height="34"/>
+                                <rect key="frame" x="62" y="213" width="250" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VEx-Pw-lkZ">
-                                <rect key="frame" x="62" y="313" width="250" height="34"/>
+                                <rect key="frame" x="62" y="274" width="250" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iKJ-Ow-ZHH">
-                                <rect key="frame" x="62" y="176" width="250" height="34"/>
+                                <rect key="frame" x="62" y="144" width="250" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fmw-px-LZk">
+                                <rect key="frame" x="235" y="316" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="サインイン">
+                                    <color key="titleColor" red="0.35294117650000001" green="0.2666666667" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="LzA-C3-xDZ" kind="presentation" modalPresentationStyle="fullScreen" id="ON7-fJ-iKi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="gbE-lG-Pmv"/>
                     <connections>
                         <outlet property="emailTextField" destination="sk1-3f-zMq" id="BsU-Hi-0XA"/>
                         <outlet property="loginButton" destination="77K-rn-n4w" id="Fnc-4c-tPt"/>
@@ -60,7 +71,55 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="93.842364532019715"/>
+            <point key="canvasLocation" x="20" y="-277"/>
+        </scene>
+        <!--Signin View Controller-->
+        <scene sceneID="2Jx-pA-TB3">
+            <objects>
+                <viewController id="LzA-C3-xDZ" customClass="SigninViewController" customModule="Yarakasi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HfB-Go-szh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AXY-UU-aki">
+                                <rect key="frame" x="62" y="183" width="250" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Uw-ZM-lMA">
+                                <rect key="frame" x="62" y="261" width="250" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFN-4x-Y5i">
+                                <rect key="frame" x="100" y="351" width="175" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.35294117650000001" green="0.2666666667" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
+                                <state key="normal" title="サインイン">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="login" destination="BYZ-38-t0r" eventType="touchUpInside" id="bvf-O1-sUS"/>
+                                    <action selector="siginin" destination="LzA-C3-xDZ" eventType="touchUpInside" id="dNU-51-MWV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UZI-fz-gfc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="AXY-UU-aki" id="sJV-Yy-PSm"/>
+                        <outlet property="passwordTextField" destination="1Uw-ZM-lMA" id="NIb-CX-7ip"/>
+                        <outlet property="signinButton" destination="JFN-4x-Y5i" id="Cpc-Mb-3La"/>
+                        <segue destination="QcK-m7-Gr9" kind="presentation" identifier="Chat" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Mtq-hr-62t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b2t-hP-3zJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="484"/>
         </scene>
         <!--Container View Controller-->
         <scene sceneID="yzK-nr-f98">
@@ -167,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gR-PW-rZ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3008.8000000000002" y="-38.423645320197046"/>
+            <point key="canvasLocation" x="3657" y="94"/>
         </scene>
         <!--Post Message View Controller-->
         <scene sceneID="Oxr-iu-bt9">
@@ -236,7 +295,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oJM-sT-lqm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2666" y="649"/>
+            <point key="canvasLocation" x="2615" y="460"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sPA-tY-uVL">
@@ -289,9 +348,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NwO-eU-xlV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2602" y="-735"/>
+            <point key="canvasLocation" x="2612" y="-246"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Mtq-hr-62t"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">

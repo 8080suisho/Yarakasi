@@ -40,6 +40,7 @@ class ViewController: UIViewController {
         loginButton.layer.cornerRadius = 20
     }
     
+   
     //ログイン
     @IBAction func login(){
         
@@ -48,10 +49,15 @@ class ViewController: UIViewController {
         //ユーザー名をUDに保存
         ud.set(loginNameTextField.text, forKey: "loginChatName")
         
+        //確認メールの送信
         let email = emailTextField.text!
         let password = passwordTextField.text!
+        
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if error == nil, let result = result {
+                //udにuidを保存
+                ud.set(result.user.uid, forKey: "uid")
+                
                 result.user.sendEmailVerification(completion: { (error) in
                     if error == nil {
                         let alert = UIAlertController(title: "仮登録を行いました。", message: "入力したメールアドレス宛に確認メールを送信しました。", preferredStyle: .alert)
@@ -75,6 +81,7 @@ class ViewController: UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
+        
         super.viewDidAppear(animated)
         if Auth.auth().currentUser != nil {
             Auth.auth().currentUser?.reload(completion: { error in

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C0F1480252CAAAB006A5052 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0F147F252CAAAB006A5052 /* SigninViewController.swift */; };
 		2C1658F9252AB8BE0001D462 /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1658F8252AB8BE0001D462 /* AppUser.swift */; };
 		2C23585C25264BA400EE09B7 /* ControllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C23585B25264BA400EE09B7 /* ControllViewController.swift */; };
 		2C24323F252A07990096A437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C24323E252A07990096A437 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C0F147F252CAAAB006A5052 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		2C1658F8252AB8BE0001D462 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		2C23585B25264BA400EE09B7 /* ControllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllViewController.swift; sourceTree = "<group>"; };
 		2C24323E252A07990096A437 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				2C47EA77252630DB006A92C8 /* ChatTableViewCell.swift */,
 				2CB7FBCE252B01E40049AF75 /* ReportViewController.swift */,
 				2C23585B25264BA400EE09B7 /* ControllViewController.swift */,
+				2C0F147F252CAAAB006A5052 /* SigninViewController.swift */,
 				2C47EA8125263128006A92C8 /* Post.swift */,
 				2C1658F8252AB8BE0001D462 /* AppUser.swift */,
 				2C47EA492526235B006A92C8 /* Main.storyboard */,
@@ -245,6 +248,7 @@
 				2C47EA79252630DB006A92C8 /* ChatTableViewCell.swift in Sources */,
 				2C23585C25264BA400EE09B7 /* ControllViewController.swift in Sources */,
 				2C47EA712526308E006A92C8 /* ChatViewController.swift in Sources */,
+				2C0F1480252CAAAB006A5052 /* SigninViewController.swift in Sources */,
 				2C47EA7F2526310D006A92C8 /* PostMessageViewController.swift in Sources */,
 				2C47EA8225263128006A92C8 /* Post.swift in Sources */,
 				2C47EA462526235B006A92C8 /* SceneDelegate.swift in Sources */,
