@@ -35,6 +35,16 @@ class ControllViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)    //選択解除
+        if indexPath.row == 1 {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextView = storyboard.instantiateViewController(withIdentifier: "Report") as! ReportViewController
+            self.present(nextView, animated: true, completion: nil)
+            print("報告")
+        }
+    }
+    
     
     
 

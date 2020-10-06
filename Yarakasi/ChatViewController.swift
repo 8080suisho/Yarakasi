@@ -21,6 +21,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     var userArray = [AppUser]()
     
     let db = Firestore.firestore()
+    let ud = UserDefaults.standard
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,25 +32,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let xib = UINib(nibName: "ChatTableViewCell", bundle: nil)
         listTableView.register(xib, forCellReuseIdentifier: "Cell")
-        
-        //usersコレクションに書き込む処理
-        uid = UserDefaults.standard.object(forKey: "uid") as! String
-        userName = UserDefaults.standard.object(forKey: "loginChatName") as! String
-        
-        let appUser = AppUser(data: ["userID": uid,"userName": userName])
-        
-        let db2 = Firestore.firestore().collection("users").document()
-        
-        db2.setData([
-            "userID": uid,
-            "userName": userName,
-        ]) { error in
-            if error != nil {
-                // エラー処理
-                print("エラー")
-                return
-            }
-        }
         
         
     }
@@ -104,8 +87,10 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     //Cellのボタンを押したらメニューを表示
     @objc func buttonEvent(_ sender: UIButton) {
         print("tapped: \([sender.tag])番目のcell")
+        let senderTag = postArray[sender.tag].postID
+        ud.set(senderTag, forKey: "postTag")
         presentPanModal(ControllViewController())
     }
     
-
+    
 }

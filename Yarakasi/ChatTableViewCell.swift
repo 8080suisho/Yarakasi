@@ -29,7 +29,9 @@ class ChatTableViewCell: UITableViewCell {
         
     }
     
-    
+    @IBAction func tapButton(){
+        
+    }
     
     
     

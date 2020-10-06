@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet var loginButton: UIButton!
     
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         loginButton.layer.cornerRadius = 20
     }
     
-   
+    
     //ログイン
     @IBAction func login(){
         
@@ -49,9 +49,11 @@ class ViewController: UIViewController {
         //ユーザー名をUDに保存
         ud.set(loginNameTextField.text, forKey: "loginChatName")
         
+        
         //確認メールの送信
         let email = emailTextField.text!
         let password = passwordTextField.text!
+        
         
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if error == nil, let result = result {
@@ -72,7 +74,7 @@ class ViewController: UIViewController {
     
     
     
-  //ログアウトしたときに名前入力欄に前の名前が残らないようにする
+    //ログアウトしたときに名前入力欄に前の名前が残らないようにする
     override func viewWillAppear(_ animated: Bool) {
         loginNameTextField.text = ""
         emailTextField.text = ""
@@ -87,6 +89,29 @@ class ViewController: UIViewController {
             Auth.auth().currentUser?.reload(completion: { error in
                 if error == nil {
                     if Auth.auth().currentUser?.isEmailVerified == true {
+                        
+                        
+                        //usersコレクションに書き込む処理
+                        var uid = ""
+                        var userName = ""
+                        uid = UserDefaults.standard.object(forKey: "uid") as! String
+                        userName = UserDefaults.standard.object(forKey: "loginChatName") as! String
+                        
+                        let db2 = Firestore.firestore().collection("users").document()
+                        
+                        db2.setData([
+                            "userID": uid,
+                            "userName": userName,
+                        ]) { error in
+                            if error != nil {
+                                // エラー処理
+                                print("エラー")
+                                return
+                            }
+                        }
+                        
+                        let appUser = AppUser(data: ["userID": uid,"userName": userName])
+                        
                         self.performSegue(withIdentifier: "toChat", sender: Auth.auth().currentUser!)
                     } else if Auth.auth().currentUser?.isEmailVerified == false {
                         let alert = UIAlertController(title: "確認用メールを送信しているので確認をお願いします。", message: "まだメール認証が完了していません。", preferredStyle: .alert)
@@ -98,7 +123,7 @@ class ViewController: UIViewController {
         }
     }
     
-
+    
 }
 
 //名前入力欄のカスタム
