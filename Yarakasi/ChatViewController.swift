@@ -12,12 +12,14 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     @IBOutlet var listTableView: UITableView!
+    
     var me: AppUser!
     var uid = ""
     var userName = ""
     var hidePost = ""
-    var hidePostArray = [String]()
     
+    var hidePostArray = [String]()
+    var filterArray = [String]()
     
     var postArray = [Post]()
     var userArray = [AppUser]()
@@ -38,9 +40,10 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    //firestoreからデータを読み込む
+    //チャット画面が表示されるたびfirestoreからデータを読み込む
     override func viewWillAppear(_ animated: Bool) {
         
+        //postコレクションを配列に入れる
         super.viewWillAppear(animated)
         db.collection("posts").order(by: "createdAt", descending: true).getDocuments { (snapshot, error) in
             if error == nil, let snapshot = snapshot {
@@ -53,6 +56,29 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.listTableView.reloadData()
             }
         }
+        
+        //usersコレクションを配列に入れる
+        uid = UserDefaults.standard.object(forKey: "uid") as! String
+        
+        let userRef = db.collection("users").document("\(uid)")
+        
+        userRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data()
+                let user = AppUser(data: dataDescription!)
+                self.filterArray = (user.hidePostArray)
+                print(self.filterArray)
+                print("これはフィルター")
+                //非表示の投稿のドキュメントを取得
+                
+            } else {
+                print("Document does not exist")
+                
+            }
+            
+        }
+
+        
     }
     
     
@@ -96,21 +122,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         //非表示にしたい投稿の保存
         ud.set(senderTag, forKey: "hidePost")
-        
-        //非表示にしたい投稿をusersコレクションに追加
-        uid = UserDefaults.standard.object(forKey: "uid") as! String
-        hidePost = UserDefaults.standard.object(forKey: "hidePost") as! String
-        hidePostArray.append(hidePost)
-        let hideRef = db.collection("users").document("\(uid)")
-        hideRef.updateData([
-            "hidePostArray": hidePostArray
-        ]) { err in
-            if let err = err {
-                print("Error updating document: \(err)")
-            } else {
-                print("Document successfully updated")
-            }
-        }
         
         //メニューを表示
         presentPanModal(ControllViewController())

@@ -60,6 +60,29 @@ class ViewController: UIViewController {
                 //udにuidを保存
                 ud.set(result.user.uid, forKey: "uid")
                 
+                //usersコレクションに書き込む処理
+                var uid = ""
+                var userName = ""
+                uid = UserDefaults.standard.object(forKey: "uid") as! String
+                userName = UserDefaults.standard.object(forKey: "loginChatName") as! String
+                
+                let db2 = Firestore.firestore().collection("users").document("\(uid)")
+                
+                db2.setData([
+                    "userID": uid,
+                    "userName": userName,
+                    "hidePostArray": [String]()
+                ]) { error in
+                    if error != nil {
+                        // エラー処理
+                        print("エラー")
+                        return
+                    }
+                }
+                
+                let appUser = AppUser(data: ["userID": uid,"userName": userName,"hidePostArray": [String]()])
+                
+                
                 result.user.sendEmailVerification(completion: { (error) in
                     if error == nil {
                         let alert = UIAlertController(title: "仮登録を行いました。", message: "入力したメールアドレス宛に確認メールを送信しました。", preferredStyle: .alert)
@@ -91,27 +114,6 @@ class ViewController: UIViewController {
                     if Auth.auth().currentUser?.isEmailVerified == true {
                         
                         
-                        //usersコレクションに書き込む処理
-                        var uid = ""
-                        var userName = ""
-                        uid = UserDefaults.standard.object(forKey: "uid") as! String
-                        userName = UserDefaults.standard.object(forKey: "loginChatName") as! String
-                        
-                        let db2 = Firestore.firestore().collection("users").document("\(uid)")
-                        
-                        db2.setData([
-                            "userID": uid,
-                            "userName": userName,
-                            "hidePostArray": [String]()
-                        ]) { error in
-                            if error != nil {
-                                // エラー処理
-                                print("エラー")
-                                return
-                            }
-                        }
-                        
-                        let appUser = AppUser(data: ["userID": uid,"userName": userName,"hidePostArray": [String]()])
                         
                         self.performSegue(withIdentifier: "toChat", sender: Auth.auth().currentUser!)
                     } else if Auth.auth().currentUser?.isEmailVerified == false {

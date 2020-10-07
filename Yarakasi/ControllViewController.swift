@@ -12,7 +12,12 @@ import Firebase
 class ControllViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var tableView: UITableView = UITableView()
-    var array: [String] = ["投稿を非表示にする","この投稿を報告する"]
+    var array: [String] = ["投稿を非表示にする","この投稿を報告する","このユーザーをブロックする"]
+    var uid = ""
+    var hidePost = ""
+    var hidePostArray = [String]()
+    
+    let db = Firestore.firestore()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +42,27 @@ class ControllViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)    //選択解除
-        if indexPath.row == 1 {
+        if indexPath.row == 0 {
+            //非表示にしたい投稿をusersコレクションに追加
+            uid = UserDefaults.standard.object(forKey: "uid") as! String
+            hidePost = UserDefaults.standard.object(forKey: "hidePost") as! String
+            let hideRef = db.collection("users").document("\(uid)")
+            hideRef.updateData([
+                "hidePostArray": FieldValue.arrayUnion([hidePost])
+            ]) { err in
+                if let err = err {
+                    print("Error updating document: \(err)")
+                } else {
+                    print("Document successfully updated")
+                }
+            }
+        }else if indexPath.row == 1 {
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nextView = storyboard.instantiateViewController(withIdentifier: "Report") as! ReportViewController
             self.present(nextView, animated: true, completion: nil)
             print("報告")
+        }else if indexPath.row == 2 {
+            
         }
     }
     
