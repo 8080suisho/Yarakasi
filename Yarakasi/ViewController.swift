@@ -97,11 +97,12 @@ class ViewController: UIViewController {
                         uid = UserDefaults.standard.object(forKey: "uid") as! String
                         userName = UserDefaults.standard.object(forKey: "loginChatName") as! String
                         
-                        let db2 = Firestore.firestore().collection("users").document()
+                        let db2 = Firestore.firestore().collection("users").document("\(uid)")
                         
                         db2.setData([
                             "userID": uid,
                             "userName": userName,
+                            "hidePostArray": [String]()
                         ]) { error in
                             if error != nil {
                                 // エラー処理
@@ -110,7 +111,7 @@ class ViewController: UIViewController {
                             }
                         }
                         
-                        let appUser = AppUser(data: ["userID": uid,"userName": userName])
+                        let appUser = AppUser(data: ["userID": uid,"userName": userName,"hidePostArray": [String]()])
                         
                         self.performSegue(withIdentifier: "toChat", sender: Auth.auth().currentUser!)
                     } else if Auth.auth().currentUser?.isEmailVerified == false {

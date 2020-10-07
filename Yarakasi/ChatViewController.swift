@@ -15,6 +15,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     var me: AppUser!
     var uid = ""
     var userName = ""
+    var hidePost = ""
+    var hidePostArray = [String]()
     
     
     var postArray = [Post]()
@@ -88,7 +90,29 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     @objc func buttonEvent(_ sender: UIButton) {
         print("tapped: \([sender.tag])番目のcell")
         let senderTag = postArray[sender.tag].postID
-        ud.set(senderTag, forKey: "postTag")
+        
+        //報告したい投稿の保存
+        ud.set(senderTag, forKey: "reportPost")
+        
+        //非表示にしたい投稿の保存
+        ud.set(senderTag, forKey: "hidePost")
+        
+        //非表示にしたい投稿をusersコレクションに追加
+        uid = UserDefaults.standard.object(forKey: "uid") as! String
+        hidePost = UserDefaults.standard.object(forKey: "hidePost") as! String
+        hidePostArray.append(hidePost)
+        let hideRef = db.collection("users").document("\(uid)")
+        hideRef.updateData([
+            "hidePostArray": hidePostArray
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+        
+        //メニューを表示
         presentPanModal(ControllViewController())
     }
     

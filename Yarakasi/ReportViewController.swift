@@ -13,7 +13,7 @@ class ReportViewController: UIViewController {
     @IBOutlet var reportTextView: UITextView!
     
     var report = ""
-    var postTag = ""
+    var reportPost = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +26,13 @@ class ReportViewController: UIViewController {
     //報告を送る
     @IBAction func sendReport(){
         report = reportTextView.text!
-        postTag = UserDefaults.standard.object(forKey: "postTag") as! String
+        reportPost = UserDefaults.standard.object(forKey: "reportPost") as! String
         
         let db = Firestore.firestore().collection("report").document()
         
         db.setData([
                 "report": report,
-                "postID":postTag
+                "postID":reportPost
             ]) { error in
             if error != nil {
                     // エラー処理

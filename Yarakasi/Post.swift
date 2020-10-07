@@ -17,6 +17,7 @@ struct Post {
     let createdAt: Timestamp
     let updatedAt: Timestamp
     
+    
     init(data: [String: Any]) {
         userName = data["userName"] as! String
         content = data["content"] as! String
