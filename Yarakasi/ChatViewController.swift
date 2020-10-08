@@ -23,6 +23,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var postArray = [Post]()
     var userArray = [AppUser]()
+    var newFilterArray = [Post]()
     
     let db = Firestore.firestore()
     let ud = UserDefaults.standard
@@ -51,32 +52,47 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 for document in snapshot.documents {
                     let data = document.data()
                     let post = Post(data: data)
+                    //postArrayは問題なし
                     self.postArray.append(post)
                 }
-                self.listTableView.reloadData()
+                
+                //usersコレクションを配列に入れる
+                self.uid = UserDefaults.standard.object(forKey: "uid") as! String
+                
+                let userRef = self.db.collection("users").document("\(self.uid)")
+                
+                userRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        let dataDescription = document.data()
+                        let user = AppUser(data: dataDescription!)
+                        self.filterArray = (user.hidePostArray)
+                        
+                        //filterArrayは正常に入っていた
+                        for hide in self.filterArray {
+                            for post in self.postArray {
+                                if post.postID != hide {
+                                    self.newFilterArray.append(post)
+                                }
+                            }
+                        }
+                        
+                        print("完了")
+                        self.listTableView.reloadData()
+                        
+                        
+                    } else {
+                        print("Document does not exist")
+                    }
+                }
+                
+    
+                
             }
         }
         
-        //usersコレクションを配列に入れる
-        uid = UserDefaults.standard.object(forKey: "uid") as! String
         
-        let userRef = db.collection("users").document("\(uid)")
         
-        userRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let dataDescription = document.data()
-                let user = AppUser(data: dataDescription!)
-                self.filterArray = (user.hidePostArray)
-                print(self.filterArray)
-                print("これはフィルター")
-                //非表示の投稿のドキュメントを取得
-                
-            } else {
-                print("Document does not exist")
-                
-            }
-            
-        }
+        
 
         
     }
@@ -88,7 +104,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        postArray.count
+        newFilterArray.count
     }
     
     
@@ -100,9 +116,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChatTableViewCell
         
-        cell.messageLabel?.text = postArray[indexPath.row].content
-        cell.dateLabel?.text = postArray[indexPath.row].postTime
-        cell.nameLabel?.text = postArray[indexPath.row].userName
+        cell.messageLabel?.text = newFilterArray[indexPath.row].content
+        cell.dateLabel?.text = newFilterArray[indexPath.row].postTime
+        cell.nameLabel?.text = newFilterArray[indexPath.row].userName
         
         
         
@@ -115,7 +131,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     //Cellのボタンを押したらメニューを表示
     @objc func buttonEvent(_ sender: UIButton) {
         print("tapped: \([sender.tag])番目のcell")
-        let senderTag = postArray[sender.tag].postID
+        let senderTag = newFilterArray[sender.tag].postID
         
         //報告したい投稿の保存
         ud.set(senderTag, forKey: "reportPost")
