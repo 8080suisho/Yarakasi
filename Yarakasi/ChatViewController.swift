@@ -44,6 +44,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     //チャット画面が表示されるたびfirestoreからデータを読み込む
     override func viewWillAppear(_ animated: Bool) {
         
+        
         //postコレクションを配列に入れる
         super.viewWillAppear(animated)
         db.collection("posts").order(by: "createdAt", descending: true).getDocuments { (snapshot, error) in
@@ -52,7 +53,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 for document in snapshot.documents {
                     let data = document.data()
                     let post = Post(data: data)
-                    //postArrayは問題なし
                     self.postArray.append(post)
                 }
                 
@@ -67,16 +67,10 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                         let user = AppUser(data: dataDescription!)
                         self.filterArray = (user.hidePostArray)
                         
-                        //filterArrayは正常に入っていた
-                        for hide in self.filterArray {
-                            for post in self.postArray {
-                                if post.postID != hide {
-                                    self.newFilterArray.append(post)
-                                }
-                            }
-                        }
-                        
+                        self.newFilterArray = self.postArray.filter({ !self.filterArray.contains($0.postID) })
                         print("完了")
+                        self.postArray = self.newFilterArray
+                        print(self.postArray)
                         self.listTableView.reloadData()
                         
                         
@@ -104,7 +98,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        newFilterArray.count
+        postArray.count
     }
     
     
@@ -116,9 +110,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChatTableViewCell
         
-        cell.messageLabel?.text = newFilterArray[indexPath.row].content
-        cell.dateLabel?.text = newFilterArray[indexPath.row].postTime
-        cell.nameLabel?.text = newFilterArray[indexPath.row].userName
+        cell.messageLabel?.text = postArray[indexPath.row].content
+        cell.dateLabel?.text = postArray[indexPath.row].postTime
+        cell.nameLabel?.text = postArray[indexPath.row].userName
         
         
         
@@ -131,7 +125,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     //Cellのボタンを押したらメニューを表示
     @objc func buttonEvent(_ sender: UIButton) {
         print("tapped: \([sender.tag])番目のcell")
-        let senderTag = newFilterArray[sender.tag].postID
+        let senderTag = postArray[sender.tag].postID
         
         //報告したい投稿の保存
         ud.set(senderTag, forKey: "reportPost")
