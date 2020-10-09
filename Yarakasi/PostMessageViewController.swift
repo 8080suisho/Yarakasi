@@ -14,7 +14,7 @@ class PostMessageViewController: UIViewController {
     @IBOutlet  var textView: UITextView!
     var me: AppUser!
     
-    fileprivate var maxWordCount: Int = 60 //最大文字数
+    fileprivate var maxWordCount: Int = 100 //最大文字数
     fileprivate let placeholder: String = "テキストを入力・・・" //プレイスホルダー
     
     
@@ -99,13 +99,13 @@ func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replace
     let existingLines = textView.text.components(separatedBy: .newlines)//既に存在する改行数
     let newLines = text.components(separatedBy: .newlines)//新規改行数
     let linesAfterChange = existingLines.count + newLines.count - 1 //最終改行数。-1は編集したら必ず1改行としてカウントされるから。
-    return linesAfterChange <= 3 && textView.text.count + (text.count - range.length) <= maxWordCount
+    return linesAfterChange <= 10 && textView.text.count + (text.count - range.length) <= maxWordCount
 }
     
 func textViewDidChange(_ textView: UITextView) {
     let existingLines = textView.text.components(separatedBy: .newlines)//既に存在する改行数
     if existingLines.count <= 3 {
-        self.wordCountLabel.text = "\(maxWordCount - textView.text.count)/60"
+        self.wordCountLabel.text = "\(maxWordCount - textView.text.count)/100"
     }
 }
         

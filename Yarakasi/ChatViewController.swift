@@ -38,12 +38,15 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         let xib = UINib(nibName: "ChatTableViewCell", bundle: nil)
         listTableView.register(xib, forCellReuseIdentifier: "Cell")
         
+        self.listTableView.estimatedRowHeight = 120
+        self.listTableView.rowHeight = UITableView.automaticDimension
+        
         
     }
     
     //チャット画面が表示されるたびfirestoreからデータを読み込む
     override func viewWillAppear(_ animated: Bool) {
-        
+
         
         //postコレクションを配列に入れる
         super.viewWillAppear(animated)
@@ -53,6 +56,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 for document in snapshot.documents {
                     let data = document.data()
                     let post = Post(data: data)
+                    //全ポストを取得した配列
                     self.postArray.append(post)
                 }
                 
@@ -65,8 +69,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                     if let document = document, document.exists {
                         let dataDescription = document.data()
                         let user = AppUser(data: dataDescription!)
+                        //非表示にしたいポストが入った配列
                         self.filterArray = (user.hidePostArray)
-                        
+                        //全ポストから非表示にしたいポストを除いた配列
                         self.newFilterArray = self.postArray.filter({ !self.filterArray.contains($0.postID) })
                         print("完了")
                         self.postArray = self.newFilterArray
@@ -101,10 +106,6 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         postArray.count
     }
     
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 147
-    }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
