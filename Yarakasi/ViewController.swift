@@ -71,7 +71,8 @@ class ViewController: UIViewController {
                 db2.setData([
                     "userID": uid,
                     "userName": userName,
-                    "hidePostArray": [String]()
+                    "hidePostArray": [String](),
+                    "blockUserArray": [String]()
                 ]) { error in
                     if error != nil {
                         // エラー処理
@@ -80,7 +81,7 @@ class ViewController: UIViewController {
                     }
                 }
                 
-                let appUser = AppUser(data: ["userID": uid,"userName": userName,"hidePostArray": [String]()])
+                let appUser = AppUser(data: ["userID": uid,"userName": userName,"hidePostArray": [String](),"blockUserArray": [String]()])
                 
                 
                 result.user.sendEmailVerification(completion: { (error) in

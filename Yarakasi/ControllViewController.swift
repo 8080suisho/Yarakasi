@@ -13,9 +13,6 @@ class ControllViewController: UIViewController, UITableViewDelegate, UITableView
     
     var tableView: UITableView = UITableView()
     var array: [String] = ["投稿を非表示にする","この投稿を報告する","このユーザーをブロックする"]
-    var uid = ""
-    var hidePost = ""
-    var hidePostArray = [String]()
     
     let db = Firestore.firestore()
 
@@ -44,8 +41,8 @@ class ControllViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.deselectRow(at: indexPath, animated: true)    //選択解除
         if indexPath.row == 0 {
             //非表示にしたい投稿をusersコレクションに追加
-            uid = UserDefaults.standard.object(forKey: "uid") as! String
-            hidePost = UserDefaults.standard.object(forKey: "hidePost") as! String
+            let hidePost = UserDefaults.standard.object(forKey: "hidePost") as! String
+            let uid = UserDefaults.standard.object(forKey: "uid") as! String
             let hideRef = db.collection("users").document("\(uid)")
             hideRef.updateData([
                 "hidePostArray": FieldValue.arrayUnion([hidePost])
@@ -62,7 +59,36 @@ class ControllViewController: UIViewController, UITableViewDelegate, UITableView
             self.present(nextView, animated: true, completion: nil)
             print("報告")
         }else if indexPath.row == 2 {
-            
+            let blockUser = UserDefaults.standard.object(forKey: "blockUser") as! String
+            let uid = UserDefaults.standard.object(forKey: "uid") as! String
+            if blockUser != uid {
+                //自分のリストに相手を追加
+                let BlockRef = db.collection("users").document("\(uid)")
+                BlockRef.updateData([
+                    "blockUserArray": FieldValue.arrayUnion([blockUser])
+                ]) { err in
+                    if let err = err {
+                        print("Error updating document: \(err)")
+                    } else {
+                        print("Document successfully updated")
+                    }
+                }
+                //相手のリストに自分を追加
+                let BlockUserRef = db.collection("users").document("\(blockUser)")
+                BlockUserRef.updateData([
+                    "blockUserArray": FieldValue.arrayUnion([uid])
+                ]) { err in
+                    if let err = err {
+                        print("Error updating document: \(err)")
+                    } else {
+                        print("Document successfully updated")
+                    }
+                }
+            }else {
+                let alert = UIAlertController(title: nil, message: "自分はブロックできません。", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     

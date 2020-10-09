@@ -19,11 +19,12 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     var hidePost = ""
     
     var hidePostArray = [String]()
+    var userFilterArray = [String]()
     var filterArray = [String]()
+    
     
     var postArray = [Post]()
     var userArray = [AppUser]()
-    var newFilterArray = [Post]()
     
     let db = Firestore.firestore()
     let ud = UserDefaults.standard
@@ -41,7 +42,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.listTableView.estimatedRowHeight = 120
         self.listTableView.rowHeight = UITableView.automaticDimension
         
-        
+        //空白セルの線を消す
+        self.listTableView.tableFooterView = UIView()
     }
     
     //チャット画面が表示されるたびfirestoreからデータを読み込む
@@ -71,13 +73,13 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                         let user = AppUser(data: dataDescription!)
                         //非表示にしたいポストが入った配列
                         self.filterArray = (user.hidePostArray)
+                        self.userFilterArray = (user.blockUserArray)
                         //全ポストから非表示にしたいポストを除いた配列
-                        self.newFilterArray = self.postArray.filter({ !self.filterArray.contains($0.postID) })
+                        self.postArray = self.postArray.filter({ !self.userFilterArray.contains($0.senderID) })
+                        self.postArray = self.postArray.filter({ !self.filterArray.contains($0.postID) })
                         print("完了")
-                        self.postArray = self.newFilterArray
                         print(self.postArray)
                         self.listTableView.reloadData()
-                        
                         
                     } else {
                         print("Document does not exist")
@@ -126,13 +128,17 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     //Cellのボタンを押したらメニューを表示
     @objc func buttonEvent(_ sender: UIButton) {
         print("tapped: \([sender.tag])番目のcell")
-        let senderTag = postArray[sender.tag].postID
+        let postTag = postArray[sender.tag].postID
+        let senderTag = postArray[sender.tag].senderID
         
         //報告したい投稿の保存
-        ud.set(senderTag, forKey: "reportPost")
+        ud.set(postTag, forKey: "reportPost")
         
         //非表示にしたい投稿の保存
-        ud.set(senderTag, forKey: "hidePost")
+        ud.set(postTag, forKey: "hidePost")
+        
+        //ブロックしたいユーザーの保存
+        ud.set(senderTag, forKey: "blockUser")
         
         //メニューを表示
         presentPanModal(ControllViewController())
