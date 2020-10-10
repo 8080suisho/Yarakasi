@@ -15,6 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         sleep(2)
+        //初回のみ利用規約画面を出す
+        let userDefaults = UserDefaults.standard
+        let firstLunchKey = "firstLunchKey"
+        let firstLunch = [firstLunchKey: true]
+        userDefaults.register(defaults: firstLunch)
         return true
     }
 
