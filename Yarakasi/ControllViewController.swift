@@ -41,7 +41,7 @@ class ControllViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.deselectRow(at: indexPath, animated: true)    //選択解除
         if indexPath.row == 0 {
             //非表示にしたい投稿をusersコレクションに追加
-            let hidePost = UserDefaults.standard.object(forKey: "hidePost") as! String
+            let hidePost = UserDefaults.standard.object(forKey: "postTag") as! String
             let uid = UserDefaults.standard.object(forKey: "uid") as! String
             let hideRef = db.collection("users").document("\(uid)")
             hideRef.updateData([

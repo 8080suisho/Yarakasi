@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ChatTableViewCell: UITableViewCell {
     
@@ -14,9 +15,12 @@ class ChatTableViewCell: UITableViewCell {
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var button: UIButton!
     
+    @IBOutlet var loveButton: UIButton!
+    @IBOutlet var loveLabel: UILabel!
     
-
-
+    
+    let db = Firestore.firestore()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,7 +30,6 @@ class ChatTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        
     }
     
     @IBAction func tapButton(){
@@ -34,5 +37,10 @@ class ChatTableViewCell: UITableViewCell {
     }
     
     
+    @IBAction func tapLoveButton(){
+        
+    }
+    
     
 }
+

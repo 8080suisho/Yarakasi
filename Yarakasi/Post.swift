@@ -13,6 +13,7 @@ struct Post {
     let content: String
     let postID: String
     let senderID: String
+    let love: Int
     let postTime: String
     let createdAt: Timestamp
     let updatedAt: Timestamp
@@ -24,6 +25,7 @@ struct Post {
         postID = data["postID"] as! String
         senderID = data["senderID"] as! String
         postTime = data["postTime"] as! String
+        love = data["love"] as! Int
         createdAt = data["createdAt"] as! Timestamp
         updatedAt = data["updatedAt"] as! Timestamp
         

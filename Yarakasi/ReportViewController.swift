@@ -26,7 +26,7 @@ class ReportViewController: UIViewController {
     //報告を送る
     @IBAction func sendReport(){
         report = reportTextView.text!
-        reportPost = UserDefaults.standard.object(forKey: "reportPost") as! String
+        reportPost = UserDefaults.standard.object(forKey: "postTag") as! String
         
         let db = Firestore.firestore().collection("report").document()
         

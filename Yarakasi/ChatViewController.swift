@@ -17,6 +17,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     var uid = ""
     var userName = ""
     var hidePost = ""
+    var Ope: Int = 0
     
     var hidePostArray = [String]()
     var userFilterArray = [String]()
@@ -60,6 +61,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let post = Post(data: data)
                     //全ポストを取得した配列
                     self.postArray.append(post)
+                    
                 }
                 
                 //usersコレクションを配列に入れる
@@ -74,8 +76,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                         //非表示にしたいポストが入った配列
                         self.filterArray = (user.hidePostArray)
                         self.userFilterArray = (user.blockUserArray)
-                        //全ポストから非表示にしたいポストを除いた配列
+                        //全ポストからブロックしたユーザーのポストを除いた配列
                         self.postArray = self.postArray.filter({ !self.userFilterArray.contains($0.senderID) })
+                        //全ポストから非表示にしたいポストを除いた配列
                         self.postArray = self.postArray.filter({ !self.filterArray.contains($0.postID) })
                         print("完了")
                         print(self.postArray)
@@ -116,11 +119,17 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.messageLabel?.text = postArray[indexPath.row].content
         cell.dateLabel?.text = postArray[indexPath.row].postTime
         cell.nameLabel?.text = postArray[indexPath.row].userName
-        
+        cell.loveLabel?.text = String(postArray[indexPath.row].love)
         
         
         cell.button.addTarget(self, action: #selector(self.buttonEvent(_: )), for: UIControl.Event.touchUpInside)
         cell.button.tag = indexPath.row
+        
+        cell.loveButton.addTarget(self, action: #selector(self.loveButtonEvent(_: )), for: UIControl.Event.touchUpInside)
+        cell.loveButton.tag = indexPath.row
+        
+
+        
         
         return cell
     }
@@ -131,11 +140,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         let postTag = postArray[sender.tag].postID
         let senderTag = postArray[sender.tag].senderID
         
-        //報告したい投稿の保存
-        ud.set(postTag, forKey: "reportPost")
-        
-        //非表示にしたい投稿の保存
-        ud.set(postTag, forKey: "hidePost")
+        //報告したい投稿・非表示にしたい投稿の保存
+        ud.set(postTag, forKey: "postTag")
         
         //ブロックしたいユーザーの保存
         ud.set(senderTag, forKey: "blockUser")
@@ -144,5 +150,33 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         presentPanModal(ControllViewController())
     }
     
+    //いいねボタンの処理
+    @objc func loveButtonEvent(_ sender: UIButton) {
+        print("loveが押されました")
+        
+        let iinePostTag = postArray[sender.tag].postID
+        
+        ud.set(iinePostTag, forKey: "iinePostTag")
+        var love = postArray[sender.tag].love
+        
+        if Ope == 0 {
+            love += 1
+            Ope = 1
+        }else if Ope == 1 {
+            Ope = 0
+        }
+        
+        //増えたいいねを更新
+        let iinePost = UserDefaults.standard.object(forKey: "iinePostTag") as! String
+        db.collection("posts").document("\(iinePost)").updateData([
+            "love": love
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
     
+    }
 }
