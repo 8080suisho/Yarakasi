@@ -17,8 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sleep(2)
         //初回のみ利用規約画面を出す
         let userDefaults = UserDefaults.standard
-        let firstLunchKey = "firstLunchKey"
-        let firstLunch = [firstLunchKey: true]
+        let firstLunch = ["first":true]
         userDefaults.register(defaults: firstLunch)
         return true
     }

@@ -10,7 +10,6 @@ import UIKit
 class TermsOfServiceViewController: UIViewController {
     
     @IBOutlet var okButton:UIButton!
-    var ope:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +20,13 @@ class TermsOfServiceViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         let userDefaults = UserDefaults.standard
-        let firstLunchKey = "firstLunchKey"
-        if userDefaults.bool(forKey: firstLunchKey) {
-            ope = 1
+        if userDefaults.bool(forKey: "first") {
+            let firstLunch = ["first":false]
+            userDefaults.set(firstLunch, forKey: "first")
+        }else{
+            performSegue(withIdentifier: "toLogin", sender: self)
         }
     }
     
