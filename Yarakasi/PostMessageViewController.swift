@@ -22,6 +22,7 @@ class PostMessageViewController: UIViewController {
     var senderID = ""
     var postTime = ""
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,7 +67,8 @@ class PostMessageViewController: UIViewController {
             "postID": db.documentID,
             "senderID": senderID,
             "postTime": postTime,
-            "love": 0,
+            "love": [String](),
+            "jibun": [String](),
             "createdAt": FieldValue.serverTimestamp(),
             "updatedAt": FieldValue.serverTimestamp()
         ]) { error in

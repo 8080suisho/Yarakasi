@@ -17,7 +17,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     var uid = ""
     var userName = ""
     var hidePost = ""
-    var Ope: Int = 0
+    var love = [String]()
+    var jibun = [String]()
+    
     
     var hidePostArray = [String]()
     var userFilterArray = [String]()
@@ -61,6 +63,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let post = Post(data: data)
                     //全ポストを取得した配列
                     self.postArray.append(post)
+                    //リアクションボタンの押された回数を取得
+                    self.love = post.love
+                    self.jibun = post.jibun
                     
                 }
                 
@@ -119,17 +124,22 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.messageLabel?.text = postArray[indexPath.row].content
         cell.dateLabel?.text = postArray[indexPath.row].postTime
         cell.nameLabel?.text = postArray[indexPath.row].userName
-        cell.loveLabel?.text = String(postArray[indexPath.row].love)
+        cell.loveLabel?.text = String(postArray[indexPath.row].love.count)
+        cell.jibunLabel?.text = String(postArray[indexPath.row].jibun.count)
         
         
         cell.button.addTarget(self, action: #selector(self.buttonEvent(_: )), for: UIControl.Event.touchUpInside)
         cell.button.tag = indexPath.row
         
         cell.loveButton.addTarget(self, action: #selector(self.loveButtonEvent(_: )), for: UIControl.Event.touchUpInside)
+        let image = UIImage(named: "wakaruOn")
+        cell.loveButton.setImage(image, for: .normal)
         cell.loveButton.tag = indexPath.row
         
-
-        
+        cell.jibunButton.addTarget(self, action: #selector(self.jibunButtonEvent(_: )), for: UIControl.Event.touchUpInside)
+        let jibunImage = UIImage(named: "jibunOn")
+        cell.jibunButton.setImage(jibunImage, for: .normal)
+        cell.jibunButton.tag = indexPath.row
         
         return cell
     }
@@ -152,24 +162,16 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //いいねボタンの処理
     @objc func loveButtonEvent(_ sender: UIButton) {
+        
         print("loveが押されました")
         
         let iinePostTag = postArray[sender.tag].postID
         
         ud.set(iinePostTag, forKey: "iinePostTag")
-        var love = postArray[sender.tag].love
-        
-        if Ope == 0 {
-            love += 1
-            Ope = 1
-        }else if Ope == 1 {
-            Ope = 0
-        }
-        
-        //増えたいいねを更新
-        let iinePost = UserDefaults.standard.object(forKey: "iinePostTag") as! String
-        db.collection("posts").document("\(iinePost)").updateData([
-            "love": love
+
+        let iineUserRef = db.collection("posts").document("\(iinePostTag)")
+        iineUserRef.updateData([
+            "love": FieldValue.arrayUnion([uid])
         ]) { err in
             if let err = err {
                 print("Error updating document: \(err)")
@@ -177,6 +179,27 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print("Document successfully updated")
             }
         }
-    
     }
+    
+    @objc func jibunButtonEvent(_ sender: UIButton) {
+        
+        print("jibunが押されました")
+        
+        let iinePostTag = postArray[sender.tag].postID
+        
+        ud.set(iinePostTag, forKey: "iinePostTag")
+
+        let iineUserRef = db.collection("posts").document("\(iinePostTag)")
+        iineUserRef.updateData([
+            "jibun": FieldValue.arrayUnion([uid])
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+    }
+    
+    
 }

@@ -23,14 +23,16 @@ class TermsOfServiceViewController: UIViewController {
         
         let userDefaults = UserDefaults.standard
         if userDefaults.bool(forKey: "first") {
-            let firstLunch = ["first":false]
-            userDefaults.set(firstLunch, forKey: "first")
+            
         }else{
             performSegue(withIdentifier: "toLogin", sender: self)
         }
     }
     
     @IBAction func start(){
+        let userDefaults = UserDefaults.standard
+        let firstLunch = ["first":false]
+        userDefaults.set(firstLunch, forKey: "first")
         performSegue(withIdentifier: "toLogin", sender: self)
     }
     

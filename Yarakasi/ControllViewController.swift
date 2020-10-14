@@ -53,11 +53,15 @@ class ControllViewController: UIViewController, UITableViewDelegate, UITableView
                     print("Document successfully updated")
                 }
             }
+            
+        //報告の処理
         }else if indexPath.row == 1 {
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nextView = storyboard.instantiateViewController(withIdentifier: "Report") as! ReportViewController
             self.present(nextView, animated: true, completion: nil)
             print("報告")
+            
+        //ブロックの処理
         }else if indexPath.row == 2 {
             let blockUser = UserDefaults.standard.object(forKey: "blockUser") as! String
             let uid = UserDefaults.standard.object(forKey: "uid") as! String
@@ -108,7 +112,7 @@ extension ControllViewController: PanModalPresentable {
     }
     
     var longFormHeight: PanModalHeight {
-        return .contentHeight(100)
+        return .contentHeight(150)
     }
     
     var anchorModalToLongForm: Bool {

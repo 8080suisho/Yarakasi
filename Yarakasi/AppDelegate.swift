@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
-        sleep(2)
+        sleep(1)
         //初回のみ利用規約画面を出す
         let userDefaults = UserDefaults.standard
         let firstLunch = ["first":true]

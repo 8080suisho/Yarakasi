@@ -18,6 +18,11 @@ class ChatTableViewCell: UITableViewCell {
     @IBOutlet var loveButton: UIButton!
     @IBOutlet var loveLabel: UILabel!
     
+    @IBOutlet var jibunButton: UIButton!
+    @IBOutlet var jibunLabel: UILabel!
+    
+    
+    
     
     let db = Firestore.firestore()
     
@@ -29,6 +34,7 @@ class ChatTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        
 
     }
     
@@ -38,6 +44,10 @@ class ChatTableViewCell: UITableViewCell {
     
     
     @IBAction func tapLoveButton(){
+        
+    }
+    
+    @IBAction func tapJibunButton(){
         
     }
     
