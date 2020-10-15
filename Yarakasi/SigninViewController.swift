@@ -14,6 +14,7 @@ class SigninViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var signinButton: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +61,10 @@ class SigninViewController: UIViewController, UITextFieldDelegate {
                 self.performSegue(withIdentifier: "Chat", sender: result.user)
             }
         }
+    }
+    
+    @IBAction func backLogin() {
+        self.dismiss(animated: true, completion: nil)
     }
     
 

@@ -349,10 +349,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fb-Cg-RHV">
+                                <rect key="frame" x="25" y="64" width="62" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="62" id="4TO-C5-aXE"/>
+                                    <constraint firstAttribute="height" constant="30" id="zBI-v0-tHe"/>
+                                </constraints>
+                                <state key="normal" title="ログイン">
+                                    <color key="titleColor" red="0.35294117650000001" green="0.2666666667" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backLogin" destination="LzA-C3-xDZ" eventType="touchUpInside" id="662-0X-30u"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UZI-fz-gfc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="2fb-Cg-RHV" firstAttribute="top" secondItem="UZI-fz-gfc" secondAttribute="top" constant="20" id="3oZ-vj-oMQ"/>
                             <constraint firstItem="AXY-UU-aki" firstAttribute="centerX" secondItem="HfB-Go-szh" secondAttribute="centerX" id="AJm-cK-4hI"/>
                             <constraint firstItem="Jx4-bO-0jD" firstAttribute="centerX" secondItem="HfB-Go-szh" secondAttribute="centerX" id="EXn-A9-uCP"/>
                             <constraint firstItem="JFN-4x-Y5i" firstAttribute="centerX" secondItem="HfB-Go-szh" secondAttribute="centerX" id="NhX-mm-ZHi"/>
@@ -361,6 +375,7 @@
                             <constraint firstItem="Jx4-bO-0jD" firstAttribute="top" secondItem="UZI-fz-gfc" secondAttribute="top" constant="100" id="bDs-50-6dU"/>
                             <constraint firstItem="1Uw-ZM-lMA" firstAttribute="top" secondItem="AXY-UU-aki" secondAttribute="bottom" constant="35" id="fKL-dk-jbd"/>
                             <constraint firstItem="1Uw-ZM-lMA" firstAttribute="centerX" secondItem="HfB-Go-szh" secondAttribute="centerX" id="p8w-YH-GRY"/>
+                            <constraint firstItem="2fb-Cg-RHV" firstAttribute="leading" secondItem="UZI-fz-gfc" secondAttribute="leading" constant="25" id="qiy-dZ-KXf"/>
                         </constraints>
                     </view>
                     <connections>
