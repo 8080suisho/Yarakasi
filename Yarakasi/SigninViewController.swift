@@ -56,6 +56,7 @@ class SigninViewController: UIViewController, UITextFieldDelegate {
         
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error == nil, let result = result, result.user.isEmailVerified {
+                ud.set(result.user.uid, forKey: "uid")
                 self.performSegue(withIdentifier: "Chat", sender: result.user)
             }
         }

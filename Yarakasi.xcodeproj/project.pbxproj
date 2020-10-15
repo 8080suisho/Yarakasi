@@ -51,6 +51,7 @@
 		2CB7FBCE252B01E40049AF75 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		2CD4F3362532052A00D886B2 /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
 		2CD4F3752536B45000D886B2 /* holeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = holeViewController.swift; sourceTree = "<group>"; };
+		2CD4F37B25380D7000D886B2 /* Yarakasi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Yarakasi.entitlements; sourceTree = "<group>"; };
 		3D0E5B09E6E2694616F4A9B3 /* Pods_Yarakasi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yarakasi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD3C2C46AB269423D51C0D6 /* Pods-Yarakasi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yarakasi.debug.xcconfig"; path = "Target Support Files/Pods-Yarakasi/Pods-Yarakasi.debug.xcconfig"; sourceTree = "<group>"; };
 		FF84EB096FFACEE89904DAE7 /* Pods-Yarakasi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yarakasi.release.xcconfig"; path = "Target Support Files/Pods-Yarakasi/Pods-Yarakasi.release.xcconfig"; sourceTree = "<group>"; };
@@ -97,6 +98,7 @@
 		2C47EA422526235B006A92C8 /* Yarakasi */ = {
 			isa = PBXGroup;
 			children = (
+				2CD4F37B25380D7000D886B2 /* Yarakasi.entitlements */,
 				2C47EA432526235B006A92C8 /* AppDelegate.swift */,
 				2C47EA452526235B006A92C8 /* SceneDelegate.swift */,
 				2C47EA472526235B006A92C8 /* ViewController.swift */,
@@ -407,9 +409,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Yarakasi/Yarakasi.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.0.0.2;
+				CURRENT_PROJECT_VERSION = 1.0.0.3;
 				DEVELOPMENT_TEAM = 2K446D59RQ;
 				INFOPLIST_FILE = Yarakasi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -431,9 +434,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Yarakasi/Yarakasi.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.0.0.2;
+				CURRENT_PROJECT_VERSION = 1.0.0.3;
 				DEVELOPMENT_TEAM = 2K446D59RQ;
 				INFOPLIST_FILE = Yarakasi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

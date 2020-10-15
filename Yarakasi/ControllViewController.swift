@@ -53,7 +53,7 @@ class ControllViewController: UIViewController, UITableViewDelegate, UITableView
                     print("Document successfully updated")
                 }
             }
-            
+            self.dismiss(animated: true, completion: nil)
         //報告の処理
         }else if indexPath.row == 1 {
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -88,12 +88,15 @@ class ControllViewController: UIViewController, UITableViewDelegate, UITableView
                         print("Document successfully updated")
                     }
                 }
+                self.dismiss(animated: true, completion: nil)
+                
             }else {
                 let alert = UIAlertController(title: nil, message: "自分はブロックできません。", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
         }
+        
     }
     
     
