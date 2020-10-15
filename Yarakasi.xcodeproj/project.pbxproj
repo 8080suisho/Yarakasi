@@ -25,6 +25,7 @@
 		2C47EA8225263128006A92C8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C47EA8125263128006A92C8 /* Post.swift */; };
 		2CB7FBCF252B01E40049AF75 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB7FBCE252B01E40049AF75 /* ReportViewController.swift */; };
 		2CD4F3372532052A00D886B2 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4F3362532052A00D886B2 /* TermsOfServiceViewController.swift */; };
+		2CD4F3762536B45000D886B2 /* holeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD4F3752536B45000D886B2 /* holeViewController.swift */; };
 		84B730F0A95760930E0CD21C /* Pods_Yarakasi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D0E5B09E6E2694616F4A9B3 /* Pods_Yarakasi.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		2C47EA8125263128006A92C8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		2CB7FBCE252B01E40049AF75 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		2CD4F3362532052A00D886B2 /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
+		2CD4F3752536B45000D886B2 /* holeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = holeViewController.swift; sourceTree = "<group>"; };
 		3D0E5B09E6E2694616F4A9B3 /* Pods_Yarakasi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yarakasi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD3C2C46AB269423D51C0D6 /* Pods-Yarakasi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yarakasi.debug.xcconfig"; path = "Target Support Files/Pods-Yarakasi/Pods-Yarakasi.debug.xcconfig"; sourceTree = "<group>"; };
 		FF84EB096FFACEE89904DAE7 /* Pods-Yarakasi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yarakasi.release.xcconfig"; path = "Target Support Files/Pods-Yarakasi/Pods-Yarakasi.release.xcconfig"; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				2C47EA8125263128006A92C8 /* Post.swift */,
 				2C1658F8252AB8BE0001D462 /* AppUser.swift */,
 				2CD4F3362532052A00D886B2 /* TermsOfServiceViewController.swift */,
+				2CD4F3752536B45000D886B2 /* holeViewController.swift */,
 				2C47EA492526235B006A92C8 /* Main.storyboard */,
 				2C47EA78252630DB006A92C8 /* ChatTableViewCell.xib */,
 				2C47EA4E2526235C006A92C8 /* LaunchScreen.storyboard */,
@@ -249,6 +252,7 @@
 				2C362FA125288BED00D6C09E /* ContainerViewController.swift in Sources */,
 				2C1658F9252AB8BE0001D462 /* AppUser.swift in Sources */,
 				2CB7FBCF252B01E40049AF75 /* ReportViewController.swift in Sources */,
+				2CD4F3762536B45000D886B2 /* holeViewController.swift in Sources */,
 				2C47EA79252630DB006A92C8 /* ChatTableViewCell.swift in Sources */,
 				2C23585C25264BA400EE09B7 /* ControllViewController.swift in Sources */,
 				2C47EA712526308E006A92C8 /* ChatViewController.swift in Sources */,
@@ -405,7 +409,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.0.0.1;
+				CURRENT_PROJECT_VERSION = 1.0.0.2;
 				DEVELOPMENT_TEAM = 2K446D59RQ;
 				INFOPLIST_FILE = Yarakasi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -429,7 +433,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1.0.0.1;
+				CURRENT_PROJECT_VERSION = 1.0.0.2;
 				DEVELOPMENT_TEAM = 2K446D59RQ;
 				INFOPLIST_FILE = Yarakasi/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

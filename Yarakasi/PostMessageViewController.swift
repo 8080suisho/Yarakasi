@@ -78,6 +78,16 @@ class PostMessageViewController: UIViewController {
                 return
             }
             // 成功したときの処理
+            
+            //holeLebelを更新
+            let db2 = Firestore.firestore().collection("users").document("\(self.senderID)")
+            
+            db2.updateData([
+                "holeLebel": FieldValue.increment(Int64(1))
+            ])
+            print("lebelup!")
+            
+            //チャット画面に戻る
             self.dismiss(animated: true, completion: nil)
         }
     }

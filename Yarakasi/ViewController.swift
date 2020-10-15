@@ -72,7 +72,8 @@ class ViewController: UIViewController {
                     "userID": uid,
                     "userName": userName,
                     "hidePostArray": [String](),
-                    "blockUserArray": [String]()
+                    "blockUserArray": [String](),
+                    "holeLebel": 0
                 ]) { error in
                     if error != nil {
                         // エラー処理
@@ -81,7 +82,7 @@ class ViewController: UIViewController {
                     }
                 }
                 
-                let appUser = AppUser(data: ["userID": uid,"userName": userName,"hidePostArray": [String](),"blockUserArray": [String]()])
+                let appUser = AppUser(data: ["userID": uid,"userName": userName,"hidePostArray": [String](),"blockUserArray": [String](),"holeLebel": 0])
                 
                 
                 result.user.sendEmailVerification(completion: { (error) in
