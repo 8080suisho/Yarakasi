@@ -115,8 +115,6 @@ class ViewController: UIViewController {
                 if error == nil {
                     if Auth.auth().currentUser?.isEmailVerified == true {
                         
-                        
-                        
                         self.performSegue(withIdentifier: "toChat", sender: Auth.auth().currentUser!)
                     } else if Auth.auth().currentUser?.isEmailVerified == false {
                         let alert = UIAlertController(title: "確認用メールを送信しているので確認をお願いします。", message: "まだメール認証が完了していません。", preferredStyle: .alert)

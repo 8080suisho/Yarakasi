@@ -11,6 +11,8 @@ import Firebase
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
+    
+    
     @IBOutlet var listTableView: UITableView!
     
     var me: AppUser!
@@ -32,9 +34,12 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     let db = Firestore.firestore()
     let ud = UserDefaults.standard
     
+    let reflesh = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         listTableView.delegate = self
         listTableView.dataSource = self
@@ -47,14 +52,28 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         //空白セルの線を消す
         self.listTableView.tableFooterView = UIView()
+        
+        //リフレッシュ機能
+        //クルクル(インジケーター)の色
+        reflesh.tintColor = UIColor(hex: "5a4498", alpha: 1.0)
+        //実行したい処理を追加
+        reflesh.addTarget(self, action: #selector(addText), for: .valueChanged)
+        //tableViewにreflehsを追加
+        listTableView.refreshControl = reflesh
+        
     }
     
     //チャット画面が表示されるたびfirestoreからデータを読み込む
     override func viewWillAppear(_ animated: Bool) {
-
         
-        //postコレクションを配列に入れる
         super.viewWillAppear(animated)
+        
+        reloadChat()
+    }
+    
+    //再読み込みのメソッド
+    func reloadChat() {
+        //postコレクションを配列に入れる
         db.collection("posts").order(by: "createdAt", descending: true).getDocuments { (snapshot, error) in
             if error == nil, let snapshot = snapshot {
                 self.postArray = []
@@ -93,18 +112,12 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                         print("Document does not exist")
                     }
                 }
-                
-    
-                
             }
         }
         
-        
-        
-        
-
-        
     }
+    
+    
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -146,6 +159,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //Cellのボタンを押したらメニューを表示
     @objc func buttonEvent(_ sender: UIButton) {
+        
         print("tapped: \([sender.tag])番目のcell")
         let postTag = postArray[sender.tag].postID
         let senderTag = postArray[sender.tag].senderID
@@ -160,9 +174,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         presentPanModal(ControllViewController())
     }
     
-    //いいねボタンの処理
+    //わかるボタンの処理
     @objc func loveButtonEvent(_ sender: UIButton) {
-        
         print("loveが押されました")
         
         let iinePostTag = postArray[sender.tag].postID
@@ -177,10 +190,13 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print("Error updating document: \(err)")
             } else {
                 print("Document successfully updated")
+                self.reloadChat()
             }
         }
+        
     }
     
+    //自分もボタンの処理
     @objc func jibunButtonEvent(_ sender: UIButton) {
         
         print("jibunが押されました")
@@ -197,9 +213,17 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print("Error updating document: \(err)")
             } else {
                 print("Document successfully updated")
+                self.reloadChat()
             }
         }
     }
     
-    
+    //リフレッシュ機能
+    @objc func addText() {
+        //クルクルを終了させる
+        self.reflesh.endRefreshing()
+        //セルをリロード
+        reloadChat()
+        listTableView.reloadData()
+    }
 }
